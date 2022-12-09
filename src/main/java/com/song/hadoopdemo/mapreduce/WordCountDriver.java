@@ -25,9 +25,9 @@ import java.io.IOException;
  *
  *
  * 集群上打包测试命令行：
- * hadoop jar wc.jar com.song.hadoopdemo.mapreduce.WordCountDriver /opt/model/hadoop-3.1.3/wcinput/ /opt/model/hadoop-3.1.3/output
+ * hadoop jar wc.jar com.song.hadoopdemo.mapreduce.WordCountDriver /testRemove/wordCount.txt /output
  *
- * /opt/model/hadoop-3.1.3/wcinput/ /opt/model/hadoop-3.1.3/output
+ * /testRemove/wordCount.txt /output
  * HDFS的输入和输出路径
  *
  *
@@ -57,10 +57,6 @@ public class WordCountDriver {
         // 6 设置输入和输出路径  扔服务器上测试
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
-
-//       本地测试
-//        FileInputFormat.setInputPaths(job, new Path("D:\\test_data\\MyWordCount.txt"));
-//        FileOutputFormat.setOutputPath(job, new Path("D:\\test_data\\out"));
 
         // 7 提交job
         boolean result = job.waitForCompletion(true);
