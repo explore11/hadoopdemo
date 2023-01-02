@@ -78,7 +78,7 @@ public class HdfsClientTest {
          */
 //        fs.copyFromLocalFile(false, true, new Path("D:\\test_data\\input\\wordCount.txt"), new Path("/huaru/upload/wordCount.txt"));
 //        fs.copyFromLocalFile(false, true, new Path("D:\\test_data\\input\\wordCount.txt"), new Path("/testRemove/wordCount.txt"));
-        fs.copyFromLocalFile(false, true, new Path("D:\\test_data\\input\\资料.zip"), new Path("/testRemove/资料.zip"));
+        fs.copyFromLocalFile(false, true, new Path("D:\\wordCount2.txt"), new Path("/testRemove/wordCount2.txt"));
     }
 
 
