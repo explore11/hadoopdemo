@@ -8,7 +8,7 @@ import java.util.Random;
 public class GenerateData {
     private static Random random = new Random();
     private static String[] charts = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-    private static Long num = 180000000L;
+    private static Long num = 1800000000L;
 
     public static String generateRandomData(int start, int end) {
         return charts[random.nextInt(end - start + 1)];
@@ -19,7 +19,7 @@ public class GenerateData {
      * 产生10G的 1-1000的数据在D盘
      */
     public void generateData() throws IOException {
-        File file = new File("D:\\User.txt");
+        File file = new File("D:\\WordCount.txt");
         if (!file.exists()) {
             try {
                 file.createNewFile();

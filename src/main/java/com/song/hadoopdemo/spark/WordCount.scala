@@ -1,6 +1,9 @@
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
+/**
+ * spark中的WordCount案例
+ */
 object WordCount {
 
   def main(args: Array[String]): Unit = {
