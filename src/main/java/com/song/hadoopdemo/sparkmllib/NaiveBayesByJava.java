@@ -28,17 +28,17 @@ public class NaiveBayesByJava {
         // 训练模型
         NaiveBayesModel model = nb.fit(train);
 
-        //选择要显示的示例行 Select example rows to display.
+        //选择要显示的示例行
         Dataset<Row> predictions = model.transform(test);
         predictions.show();
 
-        // compute accuracy on the test set
+        // 计算测试集的准确性
         MulticlassClassificationEvaluator evaluator = new MulticlassClassificationEvaluator()
                 .setLabelCol("label")
                 .setPredictionCol("prediction")
                 .setMetricName("accuracy");
         double accuracy = evaluator.evaluate(predictions);
-        System.out.println("Test set accuracy = " + accuracy);
+        System.out.println("测试集精度 :" + accuracy);
 
     }
 }
