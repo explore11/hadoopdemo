@@ -16,15 +16,13 @@ import org.apache.spark.sql.SparkSession
  * 当在具有常量非零列的数据集上无截距拟合 LogisticRegressionModel时，Spark MLlib 为常量非零列输出零系数。
  *
  *
- * 二元分类训练二项式和多项式逻辑回归模型
+ * 二项式和多项式逻辑回归
  */
 object LogisticRegressionByScala {
   def main(args: Array[String]): Unit = {
-    // 构建Spark对象
-    val conf = new SparkConf().setMaster("local[*]").setAppName("LinearRegressionWithSGD")
-    val sc = new SparkContext(conf)
     //创建 SparkSession 对象
-    val spark: SparkSession = SparkSession.builder().config(conf).getOrCreate()
+    val spark = SparkSession.builder.master("local[*]").appName("LinearRegressionWithSGD").getOrCreate
+
 
     // 加载训练数据
     val training = spark.read.format("libsvm").load("data/sample_libsvm_data.txt")
@@ -57,6 +55,6 @@ object LogisticRegressionByScala {
     println(s"多项式逻辑回归的截距: ${mlrModel.interceptVector}")
 
     //关闭
-    sc.stop()
+    spark.stop()
   }
 }

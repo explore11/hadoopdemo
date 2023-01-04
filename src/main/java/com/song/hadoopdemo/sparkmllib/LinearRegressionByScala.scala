@@ -2,7 +2,6 @@ package com.song.hadoopdemo.sparkmllib
 
 import org.apache.spark.ml.regression.LinearRegression
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.{SparkConf, SparkContext}
 
 /**
  * 线性回归算法 scala 版本
@@ -10,11 +9,8 @@ import org.apache.spark.{SparkConf, SparkContext}
  */
 object LinearRegressionByScala {
   def main(args: Array[String]): Unit = {
-    // 构建Spark对象
-    val conf = new SparkConf().setMaster("local[*]").setAppName("LinearRegressionWithSGD")
-    val sc = new SparkContext(conf)
     //创建 SparkSession 对象
-    val spark: SparkSession = SparkSession.builder().config(conf).getOrCreate()
+    val spark = SparkSession.builder.master("local[*]").appName("LinearRegressionWithSGD").getOrCreate
 
     // 加载训练数据
     val training = spark.read.format("libsvm").load("data/sample_linear_regression_data.txt")
@@ -44,6 +40,6 @@ object LinearRegressionByScala {
     println(s"决定系数: ${trainingSummary.r2}")
 
     //关闭
-    sc.stop()
+    spark.stop()
   }
 }

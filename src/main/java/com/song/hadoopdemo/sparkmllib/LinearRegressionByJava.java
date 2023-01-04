@@ -15,11 +15,8 @@ import org.apache.spark.sql.SparkSession;
  */
 public class LinearRegressionByJava {
     public static void main(String[] args) {
-        // 构建Spark对象
-        SparkConf conf = new SparkConf().setMaster("local[*]").setAppName("LinearRegressionWithSGD");
-        SparkContext sc = new SparkContext(conf);
         //创建 SparkSession 对象
-        SparkSession spark = SparkSession.builder().config(conf).getOrCreate();
+        SparkSession spark = SparkSession.builder().master("local[*]").appName("LinearRegressionWithSGD").getOrCreate();
 
         // 加载训练数据
         Dataset<Row> training = spark.read().format("libsvm").load("data/sample_linear_regression_data.txt");
@@ -44,5 +41,7 @@ public class LinearRegressionByJava {
         residuals.show(100);
         System.out.println("均方根误差: " + trainingSummary.rootMeanSquaredError());
         System.out.println("决定系数: " + trainingSummary.r2());
+
+        spark.stop();
     }
 }
