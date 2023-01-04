@@ -24,16 +24,16 @@
                 org.apache.hadoop.fs.FileSystem - NativeIO.createDirectoryWithMode error, path = D:\test_data\download, mode = 755
                 org.apache.hadoop.io.nativeio.NativeIOException: 当文件已存在时，无法创建该文件。
             -->
-            <!--            <exclusions>-->
-            <!--                <exclusion>-->
-            <!--                    <groupId>ch.qos.logback</groupId>-->
-            <!--                    <artifactId>logback-classic</artifactId>-->
-            <!--                </exclusion>-->
-            <!--                <exclusion>-->
-            <!--                    <groupId>ch.qos.logback</groupId>-->
-            <!--                    <artifactId>logback-core</artifactId>-->
-            <!--                </exclusion>-->
-            <!--            </exclusions>-->
+            <exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -71,6 +71,11 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-mllib_2.12</artifactId>
             <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>3.0.8</version>
         </dependency>
     </dependencies>
 
