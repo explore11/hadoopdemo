@@ -42,6 +42,12 @@ public class LinearRegressionByJava {
         System.out.println("均方根误差: " + trainingSummary.rootMeanSquaredError());
         System.out.println("决定系数: " + trainingSummary.r2());
 
+        Dataset<Row> predictions = trainingSummary.predictions();
+        System.out.println(predictions);
+        String s = trainingSummary.predictionCol();
+        System.out.println(s);
+
+
         spark.stop();
     }
 }
