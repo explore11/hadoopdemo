@@ -18,6 +18,18 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.jpmml</groupId>
+            <artifactId>jpmml-sparkml</artifactId>
+            <version>1.5.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <!--     排除的原因  避免出现下面的报错，虽然不影响使用，但是闹心
